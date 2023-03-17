@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/carousel/">
+     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='DoctorsProfile.css') }}">
+
+    <style type="text/css">
+      body, html {
+    height: 100%;
+}
+.img_holder img{
+        max-width: 100%; max-height: 100%;
+    }
+
+    .btn-file {
+    position: relative;
+    overflow: hidden;
+    }
+    .btn-file input[type=file] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 100%;
+        min-height: 100%;
+        font-size: 100px;
+        text-align: right;
+        filter: alpha(opacity=0);
+        opacity: 0;
+        outline: none;
+        background: white;
+        cursor: inherit;
+        display: block;
+    }
+.bg { 
+    /* The image used */
+    background-image: white);
+
+    /* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.head {
+  color: white;
+  font-family: sans-serif;
+  font-size: 30px;
+  border-bottom: double;
+  text-align: center;
+}
+
+.nav.navbar-nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+@media (min-width: 768px) {
+    .navbar-nav {
+        float: none;
+    }
+}
+
+.tablink {
+    background-color: #FEA127;
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 25%;
+}
+
+.tablink:hover {
+    background-color: green;
+}
+
+/* Style the tab content */
+.tabcontent {
+    color: white;
+    display: none;
+    padding: 50px;
+    width: 855px;
+    position: relative;
+    height: 350px;
+}
+
+#footer{background-color: black;
+text-decoration: underline;
+text-align: center;
+font-family: sans-serif;
+text-decoration-color: white;
+color: white;
+align-self: bottom;}
+#Symptom {background-color:#78A9FD; width: 600px; top:45px ;left: 50px;height:450px;}
+#Doctor {background-color: #78A9FD; width: 600px;top:45px; left: 50px}
+#Drug {background-color: #78A9FD; width: 600px;top:45px ;left: 50px}     
+      
+    </style>
+
+  </head>
+  <body>
+     <header>
+       <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color:#4481eb;">
+
+                <a class="navbar-brand" href="#"><img src="{{url_for('static', filename='logo.jfif')}}" class="logo" width="120px" height="60px"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse" style="font-size: 15px; font-weight: bold;">
+                    <ul class="navbar-nav ml-auto" >
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Get Started</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/phome" style="color:white;"> Back</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="/book" style="color:white;">Appointment</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="/consult" style="color:white;">Consult</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style="color:white;">|</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout" style="color:white;">Logout</a>
+                    </li>
+                    </ul>
+                </div>
+            </nav>
+
+</header>
+<br>
+    {% block body%}
+    <div class="bg"> 
+      <br>
+      <br><br> <br> <br>
+      <div>
+      <center><img src="https://lh3.googleusercontent.com/XGu4L46rhIGXaY60ejWMFXkyctL0J4BymlqWBUqKnPlbh9CiTyqIIBI1QBQ4HLO35LozJV2wmp8=w328-h299-no" 
+        style="height:70px; width: 70px; position: absolute;top:20px; left:560px">
+      <span style="font-size:50px; text-shadow: 3px 3px 6px #40e0d0;font-weight: bolder;font-family:'Garamound';color:blue">Disease Predictor</span></center>
+      </div>
+      <br><br><br><br><br>
+
+
+
+    {% endblock %}
+  </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>AUTOMATED TELEHEALTH APPLICATION | About Us</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/carousel/">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="circle"></div>
+  <header>
+    <a href="#"><img src="{{url_for('static', filename='logo.jfif')}}" class="logo"></a>
+    <ul>
+      <li><a href="/">Home</a> </li>
+      <li><a href="/About">About</a> </li>
+      <li><a href="/logout">Logout</a> </li>
+    </ul>
+  </header>
+  <div class="content">
+    <div class="textBox">
+      <h3>Patient requirements</h3>
+      <p>
+       <b> 1. Making prediction:</b>You are required to make predictions based on your signs and symptoms.<br>
+       <b> 2. Booking Appointment: </b>Once you have your disease predicted you can make an appointment with a doctor.<br>
+       <b> 3. Making consultations:</b> Else, you can contact, message or video call your preferred doctor based on your predicted disease.
+
+      </p>
+    </div>
+    <div class="imgBox">
+      <img src="{{url_for('static', filename='telehealthImage1.jpg')}}" class="tele">
+      </div>
+  </div><br>
+
+<div class="jumbotron" style="background-color:white;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h3>PREDICTION</h3>
+        <p>Teladoc allows patients to use prediction site to predict the disease one may suffer from before consulting the practitioner.</p>
+        <p><a class="btn btn-secondary" href="/phome" role="button" style="background-color: #4481eb; width: 80%; font-size: 1.5rem;">Predict</a></p>
+      </div>
+      <div class="col-md-4">
+        <h3>BOOK APPOINTMENT</h3>
+        <p>With our new telehealth offering, you can book a virtual appointment with any of our doctors by phone or video call.</p>
+        <p><a class="btn btn-secondary" href="/book" role="button" style="background-color: #4481eb; width: 80%; font-size: 1.5rem;">Appointment</a></p>
+      </div>
+      <div class="col-md-4">
+        <h3>DOCTOR CONSULTATION</h3>
+        <p>We offer collaboration among providers on the assessment, diagnosis,or clinical management of a specific patient.</p>
+        <p><a class="btn btn-secondary" href="/consult" role="button" style="background-color: #4481eb; width: 80%; font-size: 1.5rem;">Consult</a></p>
+      </div>
+    </div>
+  </div>
+
+    </form>
+</body>
+</html>

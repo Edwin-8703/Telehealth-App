@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/carousel/">
+     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='DoctorsProfile.css') }}">
+    <title>TELADOC | Disease Index</title>
+</head>
+<style>
+
+    .img_holder img{
+        max-width: 100%; max-height: 100%;
+    }
+
+    .btn-file {
+    position: relative;
+    overflow: hidden;
+    }
+    .btn-file input[type=file] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 100%;
+        min-height: 100%;
+        font-size: 100px;
+        text-align: right;
+        filter: alpha(opacity=0);
+        opacity: 0;
+        outline: none;
+        background: white;
+        cursor: inherit;
+        display: block;
+    }
+</style>
+<body>
+
+    <header>
+       <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color:steelblue;">
+
+                <a class="navbar-brand" href="#"><img src="{{url_for('static', filename='logo.jfif')}}" class="logo" width="120px" height="60px"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse" style="font-size: 15px; font-weight: bold;">
+                    <ul class="navbar-nav ml-auto" >
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Get Started</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/user" style="color:white;">User</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style="color:white;">|</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout"style="color:white;">Logout</a>
+                    </li>
+                    </ul>
+                </div>
+            </nav>
+
+</header>
+        <br><br><br><br> <br><br><br><br> <br><br><br> <br>
+
+    <!--Connect Section-->
+    <div class="container-fluid padding" >
+    <div class="row text-center padding">
+        <div class="col-12">
+            <h1>Connect With Us</h1>
+        </div>
+    </div>
+    </div>
+    <br><br> 
+    <!--Footer-->
+
+
+    <footer >
+        <form action="{{url_for('contact')}}" style="font-size: 20px; font-weight:20em">
+        <div class="container-fluid padding">
+        <div class="row text-center">
+            <div class="col-md-4">
+                <hr class="light">
+                <h2>Contact Details</h2>
+                <hr class="light"><br>
+                <p>+254 769404362 </p>
+                <p> +254 795688171</p>
+                <p>contactus@teladoc.com</p>
+                <p>Kisii, Uhuru plaza second floor</p>
+            </div>
+            <div class="col-md-4">
+                <hr class="light" />
+                <h2>Our Hours</h2>
+                <hr class="light" /><br>
+                <p>Monday: 9pm-5pm</p>
+                <p>Saturday:10am-4pm</p>
+                <p>Sunday: Closed</p>
+            </div>
+            <div class="col-md-4">
+                <hr class="light">
+                <h2>Service Areas</h2>
+                <hr class="light" /><br>
+                <p>Kisii, Uhuru plaza second floor</p>
+                <p>Keroka, Almin plaza third floor</p>
+                <p>Nyamira, Texas plaza ground floor</p>
+                <p>Rongo, Maximin plaza fouth floor</p>
+            </div>
+        </div>
+        <p style="text-align: center; margin-top: 100px; font-style: italic;">Welcome and experience change, your health is our concern</p>
+        </div>
+
+    </footer>
+   </form>
+
+</body>
+</html>

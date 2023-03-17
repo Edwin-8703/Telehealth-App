@@ -1,0 +1,20 @@
+{% include 'includes/default.html' %}
+<body>
+    <div class="row">
+        <div class="image">
+            <img src="{{url_for('static', filename='book-img.svg')}}" alt=" ">
+        </div>
+    <div id="prediction" style="position: absolute; top:200px;right:20px ;height:490px;width:700px; background-color:#4481eb;">
+        <form>
+        <span style="font-family:Georgia, 'Times New Roman', Times, serif, sans-serif;font-size: 30px; color:whitesmoke;
+        position: relative;left:120px; top:50px">
+            <br>   There are chances you may have<br>
+            {{disease[0]}}.<br><br><br> You can consider consulting a doctor <br>or booking an appointment
+            <br>
+        </span>
+        <br>
+        <!-- <button type="submit" class="btn btn-primary" style="padding: 10px;position: relative;left:400px; top:40px" name="search_doctor">Check Info</button> -->
+        </form>
+    </div>
+    
+    </body>

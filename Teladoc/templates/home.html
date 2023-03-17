@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- icon -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="{{url_for('static', filename='vstyle.css')}}">
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Chat</title>
+</head>
+<body>
+    <header>
+       <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color:steelblue;">
+
+                <a class="navbar-brand" href="#"><img src="{{url_for('static', filename='logo.jfif')}}" class="logo" width="120px" height="60px"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse" style="font-size: 15px; font-weight: bold;">
+                    <ul class="navbar-nav ml-auto" >
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Get Started</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/user" style="color:white;">User</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style="color:white;">|</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout" style="color:white;">Logout</a>
+                    </li>
+                    </ul>
+                </div>
+            </nav>
+
+</header>
+<br><br><br><br>
+
+        <h1 class="display-4">Video Chat</h1>
+    
+    <div class="container text-center mt-5">
+        <h4>Welcome to video chat!</h4>
+        <p>
+            Enter a custom room name, and click join! <br> 
+            Share the room name with your friends, so that they can join too!
+        </p>
+
+        <form id="room_form" method="POST" class="form shadow" style="max-width:400px; margin-left: auto; margin-right: auto;">
+            <div class="input-group mb-3">
+                <input type="text" name="room_id" id="room_id" class="form-control" placeholder="Custom Room Name E.g A, B, C, D...." autofocus required>
+                <div class="invalid-feedback">Please fill out this field.</div>
+                <div class="input-group-append">
+                    <input type="submit" value="Join" class="btn btn-primary">
+                </div>
+                
+            </div>
+        </form>
+    </div>
+    
+</body>
+</html>

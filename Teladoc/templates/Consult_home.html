@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>AUTOMATED TELEHEALTH APPLICATION | About Us</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/carousel/">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="circle"></div>
+  <header>
+    <a href="#"><img src="{{url_for('static', filename='logo.jfif')}}" class="logo"></a>
+    <ul>
+      <li><a href="/">Get started</a> </li>
+      <li><a href="/user">User</a> </li>
+      <li><a href="/logout">Logout</a> </li>
+    </ul>
+  </header>
+  <div class="content">
+    <div class="textBox" style="float: left; padding: 5px;">
+      <h3>Reach Teladoc!</h3>
+      <p>
+         We are at your service . you can contact us through a phone call. Dial 0796299668 or 0769404362 in your phone for any inquiry. We also offer a convinient way by just clicking the button below to message us,feel free to message us.Lastly, you can reach us through video call, Click the buttons below to enjoy our services
+
+      </p>
+    </div>
+    <div class="imgBox">
+      <img src="{{url_for('static', filename='consult.jpg')}}" class="consult">
+      </div>
+  </div><br><br>
+
+<div class="jumbotron" style="background-color: white;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h3>CONTACT US</h3>
+        <p>We are at your service . you can contact us through a phone call. Dial 0796299668 in your phone for any inquiry.</p>
+        <p><a class="btn btn-secondary" href="/contact" role="button" style="background-color: #4481eb; width: 80%; font-size: 1.5rem;" > <img src="{{url_for('static', filename='phone.png')}}" alt=" " style="width:30px; height: 25px;"> Contact us</a></p>
+      </div>
+      <div class="col-md-4">
+        <h3>MESSAGING</h3>
+        <p>To reach us through messaging , we also offer a convinient way by just clicking the button below to message us,,feel free to message us.</p>
+        <p><a class="btn btn-secondary" href="/message" role="button" style="background-color: #4481eb; width: 80%; font-size: 1.5rem;" ><img src="{{url_for('static', filename='message1.png')}}" alt=" " style="width:30px; height: 25px;"> Message us</a></p>
+      </div>
+      <div class="col-md-4">
+        <h3>VIDEO CONFERENCING</h3>
+        <p>Do you want to reach us through video call? Yes we are available all the time, you can click the button below to reach our doctor</p>
+        <p><a class="btn btn-secondary" href="/home" role="button" style="background-color: #4481eb; width: 80%; font-size: 1.5rem;" ><img src="{{url_for('static', filename='video1.png')}}" alt=" " style="width:30px; height: 25px;"> Video Call</a></p>
+      </div>
+    </div>
+  </div>
+
+    </form>
+</body>
+</html>

@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block title %}
+
+Twink!
+
+{% endblock %}
+
+{% block nav %}
+<div class="nav-left">
+  <div title="{{ handle }}" class="nav-username">
+    <i class="fas fa-user icon"></i>
+    {{ handle }}
+  </div>
+  <div class="dropdown">
+    <div class="dropdown-content">
+      <div class="dropdown-header">Menu</div>
+      <div class="dropdown-username">{{ handle }}</div>
+      <a class="btn btn-light" id="home" href="{{ url_for('Index') }}" style="margin-top: 10px;">
+        Home
+        <i class="fas fa-home"></i>
+      </a>
+      <br>
+      <a class="btn btn-warning" href="{{ url_for('logout') }}" id="logout" style="margin-top: 10px;">
+        LogOut
+        <i class="fas fa-sign-out-alt"></i>
+      </a>
+    </div>
+    <div class="dropdown-icon">
+      <div class="item-1"></div>
+      <div class="item-2"></div>
+      <div class="item-3"></div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block body %}
+<script>
+
+const username = '{{ session.user }}'
+
+</script>
+
+<div class="chat-window-container">
+  <h1 class="bg-blue center welcome-title white-bubble" style="color: orange; margin-top: 40px;">Welcome to One of Twink's Fabulous Chat Rooms</h1>
+  <nav class="navbar navbar-light length chat-window" id="roomName">{{ session.current_room }}</nav>
+  <div class="slider alert-info length chat-messages-container">
+    <div data-spy="scroll" data-offset="0" class="scrollspy-example">
+      <div id="msg-box">
+        {% if messages %}
+          {% for msgs in messages %}
+        <div class="card message-content" style="width: 100%; padding: 10px; margin-top: 5px;">
+          <h5>{{ msgs.user }}</h5>
+          <p>{{ msgs.content }}</p>
+          <div class="right">{{ msgs.date }} at {{ msgs.time }}</div>
+        </div>
+          {% endfor %}
+        <div style="margin-top: 5px;" class="alert alert-warning center">
+          {{ '----- Old Messages End -----' }}
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <form class="bg-blue length" id="form1" style="display: flex; margin-bottom: 20px; margin-top: 1%;">
+
+    <div class="input-group">
+      <textarea name="msg" form="form1" class="typearea form-control" id="message" rows="1" cols="80" placeholder="Message" style="resize: none"></textarea>
+      <button type="reset" class="send" name="send" title="Send">
+        <i class="fas fa-paper-plane plane-ico"></i>
+      </button>
+    </div>
+
+  </form>
+</div>
+
+<script src="{{ url_for('static', filename='index.js') }}"></script>
+{% endblock %}

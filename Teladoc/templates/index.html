@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+
+{% block head %}
+
+<script>
+if (localStorage.getItem('current_room')) {
+  let name = localStorage.getItem('current_room');
+  window.location.replace('/room/' + name);
+}
+
+window.onload = () => {
+
+  document.querySelector('#logout').onclick = () => {
+    localStorage.removeItem('current_room');
+    localStorage.removeItem('username');
+  }
+}
+</script>
+
+{% endblock %}
+
+{% block title %}
+
+Twink!
+
+{% endblock %}
+
+{% block nav %}
+<div class="nav-left">
+  <div title="{{ handle }}" class="nav-username">
+    <i class="fas fa-user icon"></i>
+    {{ handle }}
+  </div>
+  <div class="dropdown">
+    <div class="dropdown-content" style="min-height: 170px;">
+      <div class="dropdown-header">Menu</div>
+      <div class="dropdown-username">{{ handle }}</div>
+      <a class="btn btn-warning" href="{{ url_for('logout') }}" id="logout" style="margin-top: 10px;">
+        LogOut
+        <i class="fas fa-sign-out-alt"></i>
+      </a>
+    </div>
+    <div class="dropdown-icon">
+      <div class="item-1"></div>
+      <div class="item-2"></div>
+      <div class="item-3"></div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block body %}
+
+<h1 class="bg-blue center welcome-title white-bubble" style="color: orange; margin-top: 40px;">Create or Join Chat Rooms in Twink!</h1>
+
+<br>
+<br>
+
+<div class="bg-blue center" style="font-size: 30px; font-weight: bold;">Create New Chat Room</div>
+<form class="bg-blue center" id="form0" action="{{ url_for('rooms') }}" method="post" autocomplete="off">
+  <div class="length" style="display: flex;">
+    <input type="text" class="form-control room" placeholder="Chat Room" name="input">
+    <button type="submit" class="btn btn-primary btn-block" id="press" title="Create Room" style="margin-left: 5px; width: 20%">Create</button>
+  </div>
+  <small id="userHelp" style="display: default; color: white;" class="form-text"><em>Create your own chat room</em></small>
+</form>
+
+<br>
+<br>
+
+<div class="bg-blue center" style="font-size: 30px; font-weight: bold;">Join Existing Chat Room</div>
+<form class="bg-blue center" action="{{ url_for('open0') }}" method="POST">
+
+  <div style="display: flex;" class="length">
+    <select id="rooms" class="custom-select" name="pages">
+    {% if crooms is not none %}
+      {% for croom in crooms %}
+      <option title="{{ croom }}" value="{{ croom }}">{{ croom }}</option>
+      {% endfor %}
+    {% endif %}
+    </select>
+    <button type="submit" id="enter" class="btn btn-primary btn-block" name="select" title="Join Room" style="margin-left: 5px; width: 20%">Join</button>
+  </div>
+  <small id="userHelp" style="display: default; color: white;" class="form-text"><em>Select an existing chat room to join</em></small>
+
+</form>
+
+{% endblock %}
