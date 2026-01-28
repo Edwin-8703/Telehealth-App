@@ -13,11 +13,11 @@ from sklearn.ensemble import RandomForestClassifier
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # Build the path to Training.csv
-train_path = os.path.join(BASE_DIR, "templates", "Training.csv")
-test_path = os.path.join(BASE_DIR, "templates", "Testing.csv")
+train = os.path.join(BASE_DIR, "templates", "Training.csv")
+test = os.path.join(BASE_DIR, "templates", "Testing.csv")
 # Read CSV
-train = pd.read_csv(train_path)
-test = pd.read_csv(test_path)
+df = pd.read_csv(train)
+df = pd.read_csv(test)
 
 # check for null values
 train.isnull().any()
