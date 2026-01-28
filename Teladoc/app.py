@@ -6,7 +6,8 @@ from psycopg2.extras import DictCursor
 from flask import Flask, render_template, request, redirect, url_for, session
 from flask_socketio import SocketIO, emit, join_room, leave_room
 from collections import deque
-from Teladoc import diseaseprediction
+from . import diseaseprediction
+
 
 app = Flask(__name__)
 app.secret_key = 'mysecretkey'
