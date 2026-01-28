@@ -9,11 +9,15 @@ from sklearn.metrics import confusion_matrix
 from sklearn.ensemble import RandomForestClassifier
 
 
-#loading data to the pandas dataframe
-train = pd.read_csv(os.path.join("templates", "Training.csv"))
-df = pd.DataFrame(train)
-test = pd.read_csv(os.path.join("templates", "Testing.csv"))
-df = pd.DataFrame(test)
+# Get the folder where diseaseprediction.py lives
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Build the path to Training.csv
+train_path = os.path.join(BASE_DIR, "templates", "Training.csv")
+test_path = os.path.join(BASE_DIR, "templates", "Testing.csv")
+# Read CSV
+train = pd.read_csv(train_path)
+test = pd.read_csv(test_path)
 
 # check for null values
 train.isnull().any()
