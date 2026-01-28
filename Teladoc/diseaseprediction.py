@@ -1,56 +1,64 @@
-
-import csv,numpy as np,pandas as pd
 import os
-import seaborn as sns
+import numpy as np
+import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn import metrics
-from sklearn.metrics import classification_report
-from sklearn.metrics import confusion_matrix
 from sklearn.ensemble import RandomForestClassifier
 
+# ---------------- PATH SETUP ---------------- #
 
-# Get the folder where diseaseprediction.py lives
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_DIR = os.path.join(BASE_DIR, "templates")
 
-# Build the path to Training.csv
-train = os.path.join(BASE_DIR, "templates", "Training.csv")
-test = os.path.join(BASE_DIR, "templates", "Testing.csv")
-# Read CSV
-df = pd.read_csv(train)
-df = pd.read_csv(test)
+TRAIN_PATH = os.path.join(DATA_DIR, "Training.csv")
+TEST_PATH  = os.path.join(DATA_DIR, "Testing.csv")
 
-# check for null values
-train.isnull().any()
+# ---------------- LOAD DATA ---------------- #
 
-train = train.drop(["Unnamed: 133"],axis=1)
+train_df = pd.read_csv(TRAIN_PATH)
+test_df  = pd.read_csv(TEST_PATH)
 
-#split data
-A = train[["prognosis"]] # diseases 
-B = train.drop(["prognosis"],axis=1) # symptoms 
-C = test.drop(["prognosis"],axis=1) # symptoms - testing 
-x_train, x_test, y_train, y_test = train_test_split(B,A,test_size=0.2) # 20:80
+# Drop unwanted column if it exists
+if "Unnamed: 133" in train_df.columns:
+    train_df = train_df.drop(["Unnamed: 133"], axis=1)
 
-# Traning random forest model
-mod = RandomForestClassifier(n_estimators = 100,n_jobs = 5, criterion= 'entropy',random_state = 42)
-mod = mod.fit(x_train,y_train.values.ravel())
-pred = mod.predict(x_test)
+# ---------------- PREP DATA ---------------- #
 
+X = train_df.drop(["prognosis"], axis=1)
+y = train_df["prognosis"]
 
-indices = [i for i in range(132)]
-symptoms = df.columns.values[:-1]
+x_train, x_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
 
-dictionary = dict(zip(symptoms,indices))
+# ---------------- TRAIN MODEL ---------------- #
 
-def dosomething(symptom):
-    user_input_symptoms = symptom
-    user_input_label = [0 for i in range(132)]
-    for i in user_input_symptoms:
-        idx = dictionary[i]
-        user_input_label[idx] = 1
+model = RandomForestClassifier(
+    n_estimators=100,
+    n_jobs=-1,
+    criterion="entropy",
+    random_state=42
+)
 
-    user_input_label = np.array(user_input_label)
-    user_input_label = user_input_label.reshape((-1,1)).transpose()
-    return(mod.predict(user_input_label))
+model.fit(x_train, y_train)
 
+# ---------------- SYMPTOM DICTIONARY ---------------- #
 
+symptoms = X.columns.values
+indices = list(range(len(symptoms)))
+dictionary = dict(zip(symptoms, indices))
 
+# ---------------- PREDICTION FUNCTION ---------------- #
+
+def dosomething(symptom_list):
+    """
+    symptom_list: list of symptom strings
+    """
+    user_input_label = [0] * len(symptoms)
+
+    for s in symptom_list:
+        if s in dictionary:
+            idx = dictionary[s]
+            user_input_label[idx] = 1
+
+    user_input_label = np.array(user_input_label).reshape(1, -1)
+    return model.predict(user_input_label)[0]
