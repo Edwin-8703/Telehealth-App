@@ -9,7 +9,7 @@ from collections import deque
 from . import diseaseprediction
 
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templates', static_folder='static')
 app.secret_key = 'mysecretkey'
 socketio = SocketIO(app)
 
@@ -140,10 +140,14 @@ def message():
 
 # --- DISEASE PREDICTION ---
 
-with open('templates/Testing.csv', newline='') as f:
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+csv_path = os.path.join(BASE_DIR, 'templates', 'Testing.csv')
+
+with open(csv_path, newline='') as f:
     reader = csv.reader(f)
     symptoms = next(reader)
     symptoms = symptoms[:len(symptoms)-1]
+
 
 @app.route('/phome', methods=['GET'])
 def dropdown():
